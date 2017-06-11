@@ -1,3 +1,3 @@
 #!/bin/bash
+cd /opt/desker/
 npm install
-mv node_modules /opt/desker/ 

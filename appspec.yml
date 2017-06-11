@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /*.js
     destination: /opt/desker/
+  - source: /*.json
+    destination: /opt/desker/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
