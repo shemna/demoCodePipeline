@@ -1,0 +1,8 @@
+#!/bin/bash
+APP="desker"
+pm2 describe ${APP} > /dev/null
+RUNNING=$?
+
+if [ "${RUNNING}" -eq 0 ]; then
+ pm2 delete ${APP}
+fi
