@@ -1,12 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: /*.js
-    destination: /opt/desker/
-  - source: /*.json
+  - source: ./
     destination: /opt/desker/
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/install_dependencies
       timeout: 300
       runas: root

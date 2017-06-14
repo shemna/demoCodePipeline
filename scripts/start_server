@@ -1,11 +1,10 @@
 #!/bin/bash
-#!/bin/bash
 APP="desker"
 pm2 describe ${APP} > /dev/null
 RUNNING=$?
 
 if [ "${RUNNING}" -ne 0 ]; then
-  pm2 start /var/node/desker/main.js --name ${APP}  --log-date-format="YYYY-MM-DD HH:mm Z"
+  pm2 start /opt/desker/worker.js --name ${APP} -i 2 --log-date-format="YYYY-MM-DD HH:mm Z"
 else
-  pm2 restart ${APP} --log-date-format="YYYY-MM-DD HH:mm Z"
+  pm2 reload ${APP} --log-date-format="YYYY-MM-DD HH:mm Z"
 fi
