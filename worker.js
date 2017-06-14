@@ -3,12 +3,26 @@ var app = express();
 var server = require('http').createServer(app);
 var bodyParser = require('body-parser');
 
+var crypto = require('crypto');
+
+function randomValueHex (len) {
+    return crypto.randomBytes(Math.ceil(len/2))
+        .toString('hex') // convert to hexadecimal format
+        .slice(0,len);   // return required number of characters
+}
+
+function randomInt (low, high) {
+    return Math.floor(Math.random() * (high - low + 1) + low);
+}
+
+var testVal = randomValueHex(randomInt(10, 99)); 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/test', function(req, res, next){
     setTimeout(function(){
-        res.json({status: 'ok'});
+        res.json({status: 'ok', data: testVal});
     }, 1000);
 });
 
@@ -29,7 +43,7 @@ var gracefulShutdown = function() {
    setTimeout(function() {
        console.error("Could not close connections in time, forcefully shutting down");
        process.exit()
-  }, 60*1000);
+   }, 2*60*1000);
 }
 
 // listen for TERM signal .e.g. kill 
