@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/test', function(req, res, next){
     setTimeout(function(){
-        res.json({status: 'ok'});
+        res.json({status: 'testing-ok'});
     }, 1000);
 });
 
