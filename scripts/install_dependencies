@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /opt/desker/
+cd /opt/demoCodePipeline/
 rm -rf package-lock.json
 rm -rf node_modules
 npm install
+
+chmod 744 /opt/demoCodePipeline/scripts/* 

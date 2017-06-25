@@ -1,5 +1,5 @@
 #!/bin/bash
-APP="desker"
+APP="demoCodePipeline"
 pm2 describe ${APP} > /dev/null
 RUNNING=$?
 

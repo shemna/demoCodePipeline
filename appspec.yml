@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: ./
-    destination: /opt/desker/
+    destination: /opt/demoCodePipeline/
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
